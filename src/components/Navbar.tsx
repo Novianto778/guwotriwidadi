@@ -23,8 +23,8 @@ const LINKS = [
         href: '/#news',
     },
     {
-        name: 'Contact',
-        href: '/#contact',
+        name: 'Wilayah',
+        href: '/#wilayah',
     },
 ];
 
@@ -86,12 +86,14 @@ const Navbar = (props: Props) => {
                         </span>
                     </Link>
                     <div className="flex md:order-2">
-                        <button
+                        <Link
+                            href="/#contact"
+                            scroll={false}
                             type="button"
                             className="text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-orange-700 font-medium rounded text-sm px-4 py-2 text-center mr-3 md:mr-0 duration-300"
                         >
-                            Deal with Us
-                        </button>
+                            Hubungi Kami
+                        </Link>
                         <button
                             data-collapse-toggle="navbar-sticky"
                             type="button"
