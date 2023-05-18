@@ -61,7 +61,7 @@ const Navbar = (props: Props) => {
     return (
         <nav
             className={cn(
-                'bg-transparent fixed w-full z-20 top-0 left-0 h-16',
+                'bg-transparent fixed w-full z-9999 top-0 left-0 h-16',
                 isScrolled && 'bg-white shadow-sm border-b border-gray-200'
             )}
         >

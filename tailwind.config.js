@@ -13,7 +13,10 @@ module.exports = {
             },
             height: {
                 fullnonav: 'calc(100vh - 4rem)',
-            }
+            },
+            zIndex: {
+                9999: '9999',
+            },
         },
     },
     plugins: [require('@tailwindcss/typography')],
