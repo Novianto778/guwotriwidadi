@@ -11,7 +11,10 @@ module.exports = {
                 quicksand: 'var(--font-quicksand)',
                 antiqua: 'var(--font-antiqua)',
             },
+            height: {
+                fullnonav: 'calc(100vh - 4rem)',
+            }
         },
     },
-    plugins: [],
+    plugins: [require('@tailwindcss/typography')],
 };
