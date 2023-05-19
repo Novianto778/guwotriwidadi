@@ -12,7 +12,7 @@ module.exports = {
                 antiqua: 'var(--font-antiqua)',
             },
             height: {
-                fullnonav: 'calc(100vh - 4rem)',
+                fullnonav: 'calc(100vh - 68px)',
             },
             zIndex: {
                 9999: '9999',

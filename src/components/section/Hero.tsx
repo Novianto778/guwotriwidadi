@@ -6,13 +6,14 @@ type Props = {};
 
 const Hero = (props: Props) => {
     return (
-        <div className="relative h-screen">
+        <div className="relative h-screen" id="home">
             <div className="relative inset-0 w-full h-full">
                 <div className="absolute inset-0 w-full h-full bg-black opacity-50 z-10"></div>
                 <Image
                     alt=""
                     src="/images/hero.jpg"
                     fill
+                    priority
                     className="object-cover w-full h-full"
                 />
                 <Container className="absolute flex flex-col items-center justify-center inset-0 z-20 tracking-widest">

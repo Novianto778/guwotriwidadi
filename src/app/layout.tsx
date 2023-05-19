@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
+import { Modern_Antiqua, Quicksand } from 'next/font/google';
+import ClientNavbar from '../components/ClientNavbar';
 import './globals.css';
-import { Quicksand, Modern_Antiqua } from 'next/font/google';
-import Navbar from '@/components/Navbar';
 
 const quicksand = Quicksand({
     subsets: ['latin'],
@@ -39,7 +39,7 @@ export default function RootLayout({
             className={`${modern_antiqua.variable} ${quicksand.variable} font-sans`}
         >
             <body className="font-quicksand font-medium">
-                <Navbar />
+                <ClientNavbar />
                 <main>{children}</main>
             </body>
         </html>

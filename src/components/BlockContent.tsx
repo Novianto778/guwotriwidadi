@@ -24,12 +24,13 @@ const ImageComponent = (props: any) => {
                 .auto('format')
                 .url()}
             alt={value.alt || ' '}
-            width={800}
-            height={Math.floor((9 / 16) * 800)}
+            width={300}
+            height={Math.floor((9 / 16) * 300)}
             loading="lazy"
+            className='mr-4 rounded mt-8'
             style={{
                 // Display alongside text if image appears inside a block text span
-                display: isInline ? 'inline-block' : 'block',
+                display: 'inline-block',
                 // Avoid jumping around with aspect-ratio CSS property
                 // aspectRatio: width / height,
             }}
@@ -43,7 +44,19 @@ const components: PortableTextComponents = {
         // Any other custom types you have in your content
         // Examples: mapLocation, contactForm, code, featuredProjects, latestNews, etc.
     },
-
+    block: {
+        // Ex. 1: customizing common block types
+        normal: ({ children }) => (
+            <p className="mt-0 w-full leading-relaxed text-justify">
+                {children}
+            </p>
+        ),
+        h1: ({ children }) => (
+            <h1 className="font-antiqua font-semibold text-xl text-center sm:text-left sm:text-[32px] text-primary mt-10 mb-3">
+                {children}
+            </h1>
+        ),
+    },
     marks: {
         // Ex. 1: custom renderer for the em / italics decorator
         em: ({ children }: { children: React.ReactNode }) => (
@@ -69,7 +82,7 @@ const components: PortableTextComponents = {
     list: {
         // Ex. 1: customizing common list types
         bullet: ({ children }) => (
-            <ul className="mt-0 space-y-0">{children}</ul>
+            <ul className="mt-0 space-y-0 prose">{children}</ul>
         ),
         number: ({ children }) => <ol className="mt-0">{children}</ol>,
 
@@ -80,7 +93,11 @@ const components: PortableTextComponents = {
     },
     listItem: {
         // Ex. 1: customizing common list types
-        bullet: ({ children }) => <li className="space-y-0">{children}</li>,
+        bullet: ({ children }) => (
+            <li className="space-y-0 prose list-item list-disc ml-6 text-gray-600">
+                {children}
+            </li>
+        ),
 
         // Ex. 2: rendering custom list items
         checkmarks: ({ children }) => <li>✅ {children}</li>,
@@ -89,7 +106,7 @@ const components: PortableTextComponents = {
 
 const BlockContent = ({ news }: Props) => {
     return (
-        <div className="prose">
+        <div className="text-gray-600">
             <PortableText
                 value={news.content}
                 components={components}

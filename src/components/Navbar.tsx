@@ -1,18 +1,18 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
-import Container from './Container';
+import { Menu } from 'lucide-react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import Container from './Container';
 
 type Props = {};
 
 const LINKS = [
     {
         name: 'Beranda',
-        href: '/',
+        href: '/#home',
     },
     {
         name: 'Tentang',
@@ -32,6 +32,7 @@ const Navbar = (props: Props) => {
     const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const [hashId, setHashId] = useState('');
 
     useEffect(() => {
         const handleScroll = () => {
@@ -43,11 +44,14 @@ const Navbar = (props: Props) => {
         };
 
         // if screen more than md size setisopen to false
+
         const handleResize = () => {
             if (window.innerWidth > 768) {
                 setIsOpen(false);
             }
         };
+
+        handleScroll();
 
         window.addEventListener('resize', handleResize);
 
@@ -55,18 +59,19 @@ const Navbar = (props: Props) => {
 
         return () => {
             window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('resize', handleResize);
         };
     }, []);
 
     return (
         <nav
             className={cn(
-                'bg-transparent fixed w-full z-9999 top-0 left-0 h-16',
+                'bg-transparent fixed w-full z-9999 top-0 left-0',
                 isScrolled && 'bg-white shadow-sm border-b border-gray-200'
             )}
         >
-            <Container>
-                <div className="flex flex-wrap items-center justify-between py-4">
+            <Container className="h-full">
+                <div className="flex flex-wrap w-full h-full items-center justify-between py-4">
                     <Link href="/" className="flex items-center">
                         {/* <Image
                             src="/logo.png"
@@ -78,8 +83,9 @@ const Navbar = (props: Props) => {
 
                         <span
                             className={cn(
-                                'self-center text-2xl text-white font-semibold whitespace-nowrap',
-                                isScrolled && 'text-black'
+                                'self-center text-2xl text-black font-semibold whitespace-nowrap',
+                                isScrolled && 'text-black',
+                                pathname === '/' && !isScrolled && 'text-white'
                             )}
                         >
                             Guwo
@@ -87,35 +93,26 @@ const Navbar = (props: Props) => {
                     </Link>
                     <div className="flex md:order-2">
                         <Link
-                            href="/#contact"
+                            href="/#maps"
                             scroll={false}
                             type="button"
                             className="text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-orange-700 font-medium rounded text-sm px-4 py-2 text-center mr-3 md:mr-0 duration-300"
                         >
-                            Hubungi Kami
+                            Kunjungi Kami
                         </Link>
                         <button
                             data-collapse-toggle="navbar-sticky"
                             type="button"
-                            className="inline-flex items-center p-2 text-sm text-white rounded-lg md:hidden hover:bg-orange-600 duration-300 focus:outline-none focus:ring-2 focus:ring-gray-200"
+                            className={cn(
+                                'inline-flex items-center p-2 text-sm text-white rounded-lg md:hidden hover:bg-orange-600 duration-300 focus:outline-none focus:ring-2 focus:ring-gray-200',
+                                isScrolled && 'text-black hover:text-white'
+                            )}
                             aria-controls="navbar-sticky"
                             aria-expanded="false"
                             onClick={() => setIsOpen(!isOpen)}
                         >
                             <span className="sr-only">Open main menu</span>
-                            <svg
-                                className="w-6 h-6"
-                                aria-hidden="true"
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    fill-rule="evenodd"
-                                    d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                                    clip-rule="evenodd"
-                                ></path>
-                            </svg>
+                            <Menu size={24} />
                         </button>
                     </div>
                     <div
@@ -139,14 +136,20 @@ const Navbar = (props: Props) => {
                                 <li
                                     key={link.name}
                                     className={cn(
-                                        'text-white',
+                                        pathname === '/' && 'text-white',
                                         isScrolled && 'text-black',
                                         isOpen && 'py-2 md:py-0 text-gray-800',
-                                        pathname === link.href &&
-                                            'text-orange-600'
+                                        pathname === link.href ||
+                                            (link.href === hashId &&
+                                                'text-orange-600')
                                     )}
                                 >
-                                    <Link href={link.href} scroll={false}>
+                                    <Link
+                                        href={link.href}
+                                        onClick={() => {
+                                            setHashId(link.href);
+                                        }}
+                                    >
                                         {link.name}
                                     </Link>
                                 </li>
