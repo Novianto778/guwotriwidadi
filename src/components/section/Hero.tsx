@@ -13,6 +13,7 @@ const Hero = (props: Props) => {
                     alt=""
                     src="/images/hero.jpg"
                     fill
+                    sizes="(max-width: 640px) 640px, 1280px"
                     priority
                     className="object-cover w-full h-full"
                 />

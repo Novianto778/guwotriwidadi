@@ -1,12 +1,12 @@
 import Link from 'next/link';
+import { getThreeLatestNews } from '../../sanity/utils';
 import Container from '../Container';
-import { getNews } from '../../sanity/utils';
 import NewsCard from '../NewsCard';
 
 type Props = {};
 
 const Berita = async (props: Props) => {
-    const news = await getNews();
+    const news = await getThreeLatestNews();
     return (
         <section className="pt-12" id="news">
             <Container>

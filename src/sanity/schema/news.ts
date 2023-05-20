@@ -1,4 +1,6 @@
-const news = {
+import { Rule, SchemaTypeDefinition } from 'sanity';
+
+const news: SchemaTypeDefinition = {
     name: 'news',
     title: 'Berita',
     type: 'document',
@@ -36,6 +38,7 @@ const news = {
             name: 'content',
             title: 'Content',
             type: 'array',
+
             of: [
                 {
                     title: 'Block',
@@ -45,6 +48,7 @@ const news = {
                     type: 'image',
                 },
             ],
+            validation: (Rule: Rule) => Rule.required().min(1),
         },
     ],
 };

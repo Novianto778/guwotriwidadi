@@ -2,6 +2,7 @@ import BlockContent from '@/components/BlockContent';
 import { getNewsBySlug } from '@/sanity/utils';
 import Image from 'next/image';
 import Container from '@/components/Container';
+import { formatDate } from '@/lib/utils';
 
 type Props = {
     params: {
@@ -19,6 +20,7 @@ const NewsPage = async ({ params }: Props) => {
                     fill
                     priority
                     alt="mainImage"
+                    sizes="(max-width: 640px) 640px, 1280px"
                     className="w-full object-cover"
                 />
             </Container>
@@ -32,7 +34,7 @@ const NewsPage = async ({ params }: Props) => {
                         Dipublikasi
                         <span className="font-bold text-orange-600">
                             {' '}
-                            {news.publishedAt}
+                            {formatDate(news.publishedAt)}
                         </span>
                     </p>
                     <div className="mt-10">

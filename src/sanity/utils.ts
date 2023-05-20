@@ -27,3 +27,17 @@ export async function getNewsBySlug(slug: string): Promise<News> {
     const news = await client.fetch(query, { slug });
     return news[0];
 }
+
+const getThreeLatestNewsQuery = groq`*[_type == "news"] | order(publishedAt desc) [0...3] {
+    _id,
+    title,
+    "slug": slug.current,
+    publishedAt,
+    "mainImage": mainImage.asset->url,
+    content
+}`;
+
+export async function getThreeLatestNews(): Promise<News[]> {
+    const news = await client.fetch(getThreeLatestNewsQuery);
+    return news;
+}

@@ -13,6 +13,7 @@ const Tentang = (props: Props) => {
                         <Image
                             src="/images/hero.jpg"
                             fill
+                            sizes="(max-width: 640px) 640px, 1280px"
                             alt=""
                             className="bg-cover object-cover rounded"
                         />

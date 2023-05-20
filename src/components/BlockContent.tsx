@@ -15,26 +15,31 @@ const ImageComponent = (props: any) => {
     const { value, isInline } = props;
 
     return (
-        <Image
-            src={urlBuilder(sanityConfig)
-                .image(value.asset._ref)
-                .width(800)
-                .height(Math.floor((9 / 16) * 800))
-                .fit('max')
-                .auto('format')
-                .url()}
-            alt={value.alt || ' '}
-            width={300}
-            height={Math.floor((9 / 16) * 300)}
-            loading="lazy"
-            className='mr-4 rounded mt-8'
-            style={{
-                // Display alongside text if image appears inside a block text span
-                display: 'inline-block',
-                // Avoid jumping around with aspect-ratio CSS property
-                // aspectRatio: width / height,
-            }}
-        />
+        <div className="relative w-full max-w-screen-lg aspect-[16/9] mt-4">
+            <Image
+                src={urlBuilder(sanityConfig)
+                    .image(value.asset._ref)
+                    .width(800)
+                    .height(Math.floor((9 / 16) * 800))
+                    .fit('max')
+                    .auto('format')
+                    .url()}
+                alt={value.alt || ' '}
+                // width={300}
+                fill
+                // height={Math.floor((9 / 16) * 300)}
+                loading="lazy"
+                className="mr-4 rounded mt-8"
+                style={
+                    {
+                        // Display alongside text if image appears inside a block text span
+                        // display: 'inline-block',
+                        // Avoid jumping around with aspect-ratio CSS property
+                        // aspectRatio: width / height,
+                    }
+                }
+            />
+        </div>
     );
 };
 
