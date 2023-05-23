@@ -3,6 +3,8 @@ import Berita from '@/components/section/Berita';
 import Tentang from '@/components/section/Tentang';
 import KunjungiKami from '@/components/section/KunjungiKami';
 
+export const revalidate = 10;
+
 export default function Home() {
     return (
         <div>
