@@ -3,6 +3,8 @@ import { getThreeLatestNews } from '../../sanity/utils';
 import Container from '../Container';
 import NewsCard from '../NewsCard';
 
+export const revalidate = 30;
+
 type Props = {};
 
 const Berita = async (props: Props) => {
