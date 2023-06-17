@@ -25,19 +25,17 @@ const ImageComponent = (props: any) => {
                     .auto('format')
                     .url()}
                 alt={value.alt || ' '}
-                // width={300}
                 fill
-                // height={Math.floor((9 / 16) * 300)}
                 loading="lazy"
                 className="mr-4 rounded mt-8"
-                style={
-                    {
-                        // Display alongside text if image appears inside a block text span
-                        // display: 'inline-block',
-                        // Avoid jumping around with aspect-ratio CSS property
-                        // aspectRatio: width / height,
-                    }
-                }
+                // style={
+                //     {
+                //         // Display alongside text if image appears inside a block text span
+                //         // display: 'inline-block',
+                //         // Avoid jumping around with aspect-ratio CSS property
+                //         // aspectRatio: width / height,
+                //     }
+                // }
             />
         </div>
     );
