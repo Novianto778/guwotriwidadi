@@ -3,12 +3,22 @@ import { getNewsBySlug } from '@/sanity/utils';
 import Image from 'next/image';
 import Container from '@/components/Container';
 import { formatDate } from '@/lib/utils';
+import { toPlainText } from '@portabletext/react';
+import { Metadata } from 'next';
 
 type Props = {
     params: {
         slug: string;
     };
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const news = await getNewsBySlug(params.slug);
+    return {
+        title: news.title,
+        description: toPlainText(news.content),
+    };
+}
 
 const NewsPage = async ({ params }: Props) => {
     const news = await getNewsBySlug(params.slug);

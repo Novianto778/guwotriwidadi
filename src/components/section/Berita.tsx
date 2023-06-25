@@ -7,6 +7,7 @@ type Props = {};
 
 const Berita = async (props: Props) => {
     const news = await getThreeLatestNews();
+
     return (
         <section className="pt-12" id="news">
             <Container>
