@@ -11,23 +11,31 @@ type Props = {
     news: News;
 };
 
+const pattern = /^image-([a-f\d]+)-(\d+x\d+)-(\w+)$/;
+
 const ImageComponent = (props: any) => {
+    // ts-ignore
+    const ref = props.value.asset._ref;
+    const [, imageId, size, format] = pattern.exec(ref) || [];
+    const [width, height] = size.split('x').map((n) => parseInt(n, 10));
+
     const { value, isInline } = props;
 
     return (
-        <div className="relative w-full max-w-screen-lg aspect-[16/9] mt-4">
+        <div className="unset-img">
             <Image
                 src={urlBuilder(sanityConfig)
                     .image(value.asset._ref)
-                    .width(800)
-                    .height(Math.floor((9 / 16) * 800))
+                    .width(width)
+                    .height(height)
                     .fit('max')
                     .auto('format')
                     .url()}
                 alt={value.alt || ' '}
-                fill
                 loading="lazy"
-                className="mr-4 rounded mt-8"
+                fill
+                sizes="(max-width: 640px) 100vw, 640px"
+                className="rounded mt-8 custom-img"
                 // style={
                 //     {
                 //         // Display alongside text if image appears inside a block text span

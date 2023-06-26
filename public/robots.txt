@@ -4,4 +4,4 @@ Disallow: /admin/
 User-agent: *
 Allow: /
 
-Sitemap: http://www.guwotriwidadi.my.id/sitemap.xml
+Sitemap: https://www.guwotriwidadi.my.id/sitemap.xml
