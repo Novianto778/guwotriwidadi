@@ -58,7 +58,7 @@ const components: PortableTextComponents = {
     block: {
         // Ex. 1: customizing common block types
         normal: ({ children }) => (
-            <p className="mt-0 w-full leading-relaxed text-justify">
+            <p className="mt-0 w-full leading-relaxed text-justify indent-10">
                 {children}
             </p>
         ),

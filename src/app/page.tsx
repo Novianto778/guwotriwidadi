@@ -4,6 +4,7 @@ import Tentang from '@/components/section/Tentang';
 import KunjungiKami from '@/components/section/KunjungiKami';
 import { getBeranda } from '../sanity/utils';
 import Wilayah from '../components/section/Wilayah';
+import Footer from '../components/section/Footer';
 
 export const revalidate = 10;
 
@@ -25,6 +26,7 @@ export default async function Home() {
             {/* @ts-expect-error Server Component */}
             <Wilayah />
             <KunjungiKami />
+            <Footer />
         </div>
     );
 }
