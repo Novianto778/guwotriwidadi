@@ -58,7 +58,7 @@ const components: PortableTextComponents = {
     block: {
         // Ex. 1: customizing common block types
         normal: ({ children }) => (
-            <p className="mt-0 w-full leading-relaxed text-justify indent-10">
+            <p className="mt-0 w-full leading-relaxed text-justify">
                 {children}
             </p>
         ),
@@ -117,7 +117,7 @@ const components: PortableTextComponents = {
 
 const BlockContent = ({ news }: Props) => {
     return (
-        <div className="text-gray-600">
+        <div className="text-gray-600 prose min-w-full">
             <PortableText
                 value={news.content}
                 components={components}

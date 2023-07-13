@@ -1,12 +1,12 @@
-import Image from 'next/image';
 import Link from 'next/link';
+import Container from '../Container';
 
 type Props = {};
 
 const Footer = (props: Props) => {
     return (
         <footer className="bg-black mt-8">
-            <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+            <Container className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
                 <div className="sm:flex sm:items-center sm:justify-between">
                     <Link href="/" className="flex items-center mb-4 sm:mb-0">
                         <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
@@ -53,7 +53,7 @@ const Footer = (props: Props) => {
                     </Link>
                     . All Rights Reserved.
                 </span>
-            </div>
+            </Container>
         </footer>
     );
 };

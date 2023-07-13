@@ -47,7 +47,7 @@ const NewsPage = async ({ params }: Props) => {
                             {formatDate(news.publishedAt)}
                         </span>
                     </p>
-                    <div className="mt-10">
+                    <div className="mt-4">
                         <BlockContent news={news} />
                     </div>
                 </article>
