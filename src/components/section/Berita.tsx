@@ -3,9 +3,7 @@ import { getThreeLatestNews } from '../../sanity/utils';
 import Container from '../Container';
 import NewsCard from '../NewsCard';
 
-type Props = {};
-
-const Berita = async (props: Props) => {
+const Berita = async () => {
     const news = await getThreeLatestNews();
 
     return (

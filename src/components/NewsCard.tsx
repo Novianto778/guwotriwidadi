@@ -11,16 +11,17 @@ type Props = {
 const NewsCard = ({ news }: Props) => {
     return (
         <div className="flex flex-col gap-4 shadow pb-4 rounded overflow-hidden">
-            <div className="relative aspect-[16/9] w-full">
+            <div className="w-full h-[200px]">
                 <Image
                     src={news.mainImage}
                     alt={news.title}
-                    fill
+                    width={500}
+                    height={500}
                     sizes="(max-width: 640px) 640px, 1280px"
-                    className="bg-cover object-cover rounded w-full hover:scale-110 duration-300"
+                    className="bg-cover object-cover aspect-[16/9] h-full rounded w-full hover:scale-110 duration-300"
                 />
             </div>
-            <div className="flex flex-col gap-2 px-4 min-h-[200px]">
+            <div className="flex flex-col gap-2 px-4 h-full min-h-[200px]">
                 <p className="text-sm text-gray-600">
                     {formatDate(news.publishedAt)}
                 </p>

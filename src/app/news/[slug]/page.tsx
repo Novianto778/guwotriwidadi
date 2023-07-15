@@ -34,9 +34,9 @@ const NewsPage = async ({ params }: Props) => {
                     className="w-full object-cover"
                 />
             </Container>
-            <Container>
-                <article className="w-full">
-                    <h1 className="font-antiqua font-semibold text-xl text-center sm:text-left sm:text-[32px] text-primary mt-10 mb-3">
+            <Container className="flex justify-center">
+                <article className="w-full max-w-2xl">
+                    <h1 className="font-antiqua font-semibold text-xl text-center sm:text-left sm:text-[32px] text-primary mt-10 mb-3 leading-normal">
                         {news.title}
                     </h1>
 

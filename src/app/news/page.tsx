@@ -20,9 +20,7 @@ export const metadata: Metadata = {
     ],
 };
 
-type Props = {};
-
-const SemuaBerita = async (props: Props) => {
+const SemuaBerita = async () => {
     const news = await getNews();
     return (
         <Container className="mt-4">
