@@ -40,7 +40,7 @@ const NewsPage = async ({ params }: Props) => {
                         {news.title}
                     </h1>
 
-                    <p>
+                    <p> 
                         Dipublikasi
                         <span className="font-bold text-orange-600">
                             {' '}
