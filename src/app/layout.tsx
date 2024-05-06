@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     images: "/opengraph-image.png",
     description: `Guwo Triwidadi adalah sebuah dusun di Kalurahan Triwidadi, Kapanewon Pajangan, Kabupaten Bantul, Daerah Istimewa Yogyakarta, Indonesia. Dusun ini terletak di sebelah barat daya Kapanewon Pajangan, berbatasan dengan Dusun Sumbermulyo di sebelah barat, Dusun Sumberagung di sebelah timur, Dusun Sumbermulyo di sebelah utara, dan Dusun Sumberagung di sebelah selatan.`,
     siteName: "Guwo Triwidadi",
-    url: "https://www.guwotriwidadi.my.id",
+    url: "https://guwotriwidadi.my.id",
     type: "website",
     title: "Guwo Triwidadi",
   },
